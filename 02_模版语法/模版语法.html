@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--
+    Vue 模版语法有两大类:
+        1. 插值语法:
+            功能: 用于解析标签体内容
+            写法: {{xxx}},xxx是js表达式，且可以直接读取data中的所有属性
+        2. 指令语法:
+            功能: 用于解析标签(包括标签属性、标签体内容、绑定事件...)
+            举例: v-bind:bref="xxx" 或简写为 :bref="xxx", xxx同样写js表达式，且可以读取data中的所有属性
+            备注: Vue中有很多指令，且形式都为v-????
+-->
+<div id="root">
+    <h1>插值语法</h1>
+    <h2>hello {{name}}</h2>
+    <hr/>
+    <h1>指令语法</h1>
+    <a v-bind:href="url">点击这里去百度1</a> <br>
+    <a :href="url">点击这里去百度2</a>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#root',
+        data: {
+            name: 'Jack',
+            url: 'https://www.baidu.com/',
+        },
+    })
+
+</script>
+</body>
+</html>
