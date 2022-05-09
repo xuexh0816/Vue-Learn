@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        el与data的两种写法
+            1. el的两种写法
+                a. new Vue()时候配置属性
+                b. 先创建Vue实例，然后再通过vm.$mount('#root')指定el的值
+            2. data的两种写法
+                a. 对象式
+                b. 函数式
+                备注：目前两种写法都可以，组件必须要用函数式否则报错
+            3. 一个重要原则
+                由Vue管理的函数一定不要用箭头函数，因为箭头函数没有this，会自动找到上一级的this，就不再是vue实例了
+
+
+
+
+
+
+    -->
+    <div id="root">
+        <h1>Hello {{name}}</h1>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        // 1. el的两种写法
+        // const vm = new Vue({
+        //     // el:'#root', //el的第一种写法
+        //     data:{
+        //         name:'world'
+        //     }
+        // })
+        // console.log(vm)
+        // vm.$mount('#root') //el.第二种写法
+
+        // 2. data的两种写法
+        const vm = new Vue({
+            //data的第一种写法：对象式
+            // data:{
+            //     name:'word'
+            // }
+            //data的第二种写法：函数式
+            data(){
+                return {
+                    name:'world'
+                }
+            }
+        })
+        vm.$mount('#root')
+
+        
+    </script>
+</body>
+</html>

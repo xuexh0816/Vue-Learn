@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        MVVM模型
+            1. M:Model 对应data中的数据
+            2. V:View 模板代码
+            3. VM:ViewModel Vue实例
+        观察发现
+            1. data中的所有属性都会出现在Vue实例上
+            2. Vue实例上的所有属性及Vue实例原型上的所有属性在Vue模板中都可以直接使用
+    -->
+
+    <!--View-->
+    <div id="root">
+        <h1>Hello {{name}}</h1>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        //ViewModel
+        const vm = new Vue({
+            //Model
+            data(){
+                return {
+                    name:'World'
+                }
+            }
+        })
+        vm.$mount('#root')
+    </script>
+
+</body>
+</html>
